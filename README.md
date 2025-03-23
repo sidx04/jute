@@ -21,7 +21,7 @@
 **Linux / macOS:**
 
 ```bash
-curl -L https://github.com/your_username/jute/releases/download/v1.0.0/jute-tui-v1.0.0-x86_64-linux.tar.gz | tar -xz
+curl -L https://github.com/sidx04/jute/releases/download/v1.0.0/jute-tui-v1.0.0-x86_64-linux.tar.gz | tar -xz
 sudo mv jute-tui /usr/local/bin/
 ```
 
@@ -34,7 +34,7 @@ Download the `.zip` from [Releases](https://github.com/sidx04/jute/releases) and
 Clone the repo and build:
 
 ```bash
-git clone https://github.com/your_username/jute.git
+git clone https://github.com/sidx04/jute.git
 cd jute
 cargo build --release
 ```
