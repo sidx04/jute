@@ -1,5 +1,6 @@
 [package]
-name = "jute-json-tui"
+name = "jute-tui"
+repository = "https://github.com/sidx04/jute"
 version = "0.1.0"
 edition = "2024"
 
