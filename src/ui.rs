@@ -219,7 +219,7 @@ pub fn ui(frame: &mut Frame, app: &App) {
             .padding(Padding::uniform(2));
 
         let exit_text = Text::styled(
-            "Would you like to output the buffer as json? (y/n)",
+            "Would you like to output the buffer as json? (Y/n)",
             Style::default().fg(Color::White),
         );
 
