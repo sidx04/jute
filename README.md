@@ -1,28 +1,18 @@
-```
-
-    ___   ___  ___   _________   _______
-   |\  \ |\  \|\  \ |\___   ___\|\  ___ \
-   \ \  \\ \  \\\  \\|___ \  \_|\ \   __/|
- __ \ \  \\ \  \\\  \    \ \  \  \ \  \_|/__
-|\  \\_\  \\ \  \\\  \    \ \  \  \ \  \_|\ \
-\ \________\\ \_______\    \ \__\  \ \_______\
- \|________| \|_______|     \|__|   \|_______|
-
-```
+<div align="center">
+  <a href="https://github.com/sidx04/jute">
+    <img src="images/logo.png" alt="Logo" width="max" height="150">
+  </a>
+</div>
 
 # Jute
 
 A minimal TUI (Terminal User Interface) application to input key-value pairs and export them as JSON!
-
----
 
 ## ✨ Features
 
 - Interactive TUI to enter key-value pairs.
 - Outputs structured JSON to a file or standard output.
 - Lightweight, no external dependencies beyond Rust standard libraries.
-
----
 
 ## 🚀 Installation
 
@@ -38,8 +28,6 @@ sudo mv jute-tui /usr/local/bin/
 **Windows:**
 
 Download the `.zip` from [Releases](https://github.com/sidx04/jute/releases) and extract.
-
----
 
 ## 🏗️ Building from Source
 
