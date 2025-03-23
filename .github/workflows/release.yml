@@ -34,4 +34,4 @@ jobs:
         with:
           files: jute-tui-${{ github.ref_name }}-x86_64-linux.tar.gz
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
