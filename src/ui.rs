@@ -1,9 +1,10 @@
 use ratatui::{
     Frame,
-    layout::{Constraint, Direction, Layout, Rect},
-    style::{Color, Style},
+    layout::{Alignment, Constraint, Direction, Layout, Rect},
+    style::{Color, Style, Stylize},
+    symbols,
     text::{Line, Span, Text},
-    widgets::{Block, Borders, Clear, List, ListItem, Paragraph, Wrap},
+    widgets::{Block, Borders, Clear, List, ListItem, Padding, Paragraph, Wrap},
 };
 
 use crate::app::{App, CurrentScreen, CurrentlyEditing};
@@ -37,9 +38,9 @@ pub fn ui(frame: &mut Frame, app: &App) {
     let chunks = Layout::default()
         .direction(Direction::Vertical)
         .constraints([
-            Constraint::Length(4),
+            Constraint::Length(3),
             Constraint::Min(1),
-            Constraint::Length(4),
+            Constraint::Length(3),
         ])
         .split(frame.area());
 
@@ -52,10 +53,11 @@ pub fn ui(frame: &mut Frame, app: &App) {
         .style(Style::default());
 
     let title = Paragraph::new(Text::styled(
-        "Create JSON",
+        "JUTE: Create JSON keypairs in your terminal!",
         Style::default().fg(Color::Green),
     ))
-    .block(title_block);
+    .block(title_block)
+    .alignment(Alignment::Center);
 
     frame.render_widget(title, chunks[0]);
 
@@ -71,7 +73,7 @@ pub fn ui(frame: &mut Frame, app: &App) {
         ))));
     }
 
-    let list = List::new(list_items);
+    let list = List::new(list_items).style(Style::default().bg(Color::Rgb(15, 15, 15)));
 
     frame.render_widget(list, chunks[1]);
 
@@ -171,8 +173,16 @@ pub fn ui(frame: &mut Frame, app: &App) {
             .split(area);
 
         // what to display
-        let mut key_block = Block::default().title("Key").borders(Borders::ALL);
-        let mut value_block = Block::default().title("Value").borders(Borders::ALL);
+        let mut key_block = Block::default()
+            .title("Key")
+            .borders(Borders::ALL)
+            .italic()
+            .bold();
+        let mut value_block = Block::default()
+            .title("Value")
+            .borders(Borders::ALL)
+            .italic()
+            .bold();
 
         let active_style = Style::default().bg(Color::LightYellow).fg(Color::Black);
 
@@ -200,14 +210,17 @@ pub fn ui(frame: &mut Frame, app: &App) {
     if let CurrentScreen::Exiting = app.current_screen {
         frame.render_widget(Clear, frame.area()); //this clears the entire screen and anything already drawn
 
-        let popup_block = Block::default()
-            .title("Y/N")
-            .borders(Borders::NONE)
-            .style(Style::default().bg(Color::DarkGray));
+        let popup_block = Block::bordered()
+            .title("Exit")
+            .title_style(Style::default().bold())
+            .title_alignment(Alignment::Center)
+            .border_set(symbols::border::ROUNDED)
+            .style(Style::new().fg(Color::LightCyan).bg(Color::Rgb(123, 3, 35)))
+            .padding(Padding::uniform(2));
 
         let exit_text = Text::styled(
             "Would you like to output the buffer as json? (y/n)",
-            Style::default().fg(Color::Red),
+            Style::default().fg(Color::White),
         );
 
         // the `trim: false` will stop the text from being cut off when over the edge of the block
