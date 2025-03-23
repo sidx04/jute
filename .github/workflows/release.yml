@@ -28,10 +28,8 @@ jobs:
           cp target/release/jute-tui dist/
           cp README.md dist/
           tar -czvf jute-tui-${{ github.ref_name }}-x86_64-linux.tar.gz -C dist .
-
-      - name: Upload Release Asset
-        uses: softprops/action-gh-release@v2
+      - name: Upload build artifact        
+        uses: actions/upload-artifact@v4        
         with:
-          files: jute-tui-${{ github.ref_name }}-x86_64-linux.tar.gz
-        env:
-          TOKEN: ${{ secrets.PAT_TOKEN }}
+          name: jute-tui-${{ github.ref_name }}-binary
+          path: jute-tui-${{ github.ref_name }}-x86_64-linux.tar.gz
