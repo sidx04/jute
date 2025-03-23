@@ -2,11 +2,11 @@
   <a href="https://github.com/sidx04/jute">
     <img src="images/logo.png" alt="Logo" width="max" height="150">
   </a>
+
+  <p align="center">
+    A minimal TUI (Terminal User Interface) application to input key-value pairs and export them as JSON!
+  </p>
 </div>
-
-# Jute
-
-A minimal TUI (Terminal User Interface) application to input key-value pairs and export them as JSON!
 
 ## ✨ Features
 
